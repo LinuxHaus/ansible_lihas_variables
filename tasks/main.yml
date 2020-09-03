@@ -1,13 +1,18 @@
 ---
-- name: init configspaces
-  set_fact:
-    configspaces: []
-- name: find config spaces
-  set_fact:
-    configspaces: "{{ configspaces + [ configspace ] }}"
-  loop: "{{ hostvars[inventory_hostname] | flatten(levels=1) | default([]) }}"
-  loop_control:
-    loop_var: configspace
-  when: "hostvars[inventory_hostname][configspace]['config'] is defined"
-- debug:
-    var: configspaces
+- block:
+  - name: init configspaces
+    set_fact:
+      configspaces: []
+  - name: find config spaces
+    set_fact:
+      configspaces: "{{ configspaces + [ configspace ] }}"
+    loop: "{{ hostvars[inventory_hostname] | flatten(levels=1) | default([]) }}"
+    loop_control:
+      loop_var: configspace
+    when: "hostvars[inventory_hostname][configspace]['config'] is defined"
+  - debug:
+      var: configspaces
+  - name: mark role done
+    set_fact:
+      role_done_lihas_variables: true
+  when: role_done_lihas_variables is not defined
