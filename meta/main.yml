@@ -1,5 +1,6 @@
 ---
 galaxy_info:
   description: "Set variables from fai-config"
+  license: GPLv3
   author: lihas@lihas.de
 allow_duplicates: false
