@@ -3,4 +3,5 @@ galaxy_info:
   description: "Set variables from fai-config"
   license: GPLv3
   author: lihas@lihas.de
+  min_ansible_version: 2.1
 allow_duplicates: false
