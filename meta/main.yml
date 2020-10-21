@@ -4,4 +4,9 @@ galaxy_info:
   license: GPLv3
   author: lihas@lihas.de
   min_ansible_version: 2.1
+  platforms:
+    - name: Debian
+      versions:
+        - all
+        - 10
 allow_duplicates: false
