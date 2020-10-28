@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: lihas_variables
   author: lihas@lihas.de
   description: read and merge variable trees
   license: GPL-3.0-or-later
