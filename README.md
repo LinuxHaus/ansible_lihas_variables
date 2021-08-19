@@ -1,6 +1,8 @@
 # ansible-lihas-ansible
 Create variable trees in namespaces to be able to 'merge' variables from different sources like multiple group_vars and host_vars.
 
+All relevant tasks have the ansible tag 'variables'
+
 Typical host_vars or group_vars look like this:
 ```
 # cat samplehost.yml

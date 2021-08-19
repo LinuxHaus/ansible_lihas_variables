@@ -2,9 +2,13 @@
 - name: mark role done
   set_fact:
     role_done_lihas_variables: true
+  tags:
+    - variables
 - name: init configspaces
   set_fact:
     configspaces: []
+  tags:
+    - variables
 - name: find config spaces
   set_fact:
     configspaces: "{{ configspaces + [ configspace ] }}"
@@ -12,5 +16,7 @@
   loop_control:
     loop_var: configspace
   when: "hostvars[inventory_hostname][configspace]['config'] is defined"
+  tags:
+    - variables
 - debug:
     var: configspaces
