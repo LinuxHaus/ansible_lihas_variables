@@ -18,5 +18,6 @@
   when: "hostvars[inventory_hostname][configspace]['config'] is defined"
   tags:
     - variables
-- debug:
+- name: "DEBUG configspaces"
+  debug:
     var: configspaces
