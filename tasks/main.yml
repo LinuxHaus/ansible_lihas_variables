@@ -1,17 +1,17 @@
 ---
-- name: mark role done
-  set_fact:
+- name: Mark role done
+  ansible.builtin.set_fact:
     role_done_lihas_variables: true
   tags:
     - variables
-- name: init configspaces
-  set_fact:
+- name: Init configspaces
+  ansible.builtin.set_fact:
     configspaces: []
   tags:
     - variables
-- name: find config spaces
-  set_fact:
-    configspaces: "{{ configspaces + [ configspace ] }}"
+- name: Find config spaces
+  ansible.builtin.set_fact:
+    configspaces: "{{ configspaces + [configspace] }}"
   loop: "{{ hostvars[inventory_hostname] | flatten(levels=1) | default([]) }}"
   loop_control:
     loop_var: configspace
@@ -19,5 +19,5 @@
   tags:
     - variables
 - name: "DEBUG configspaces"
-  debug:
+  ansible.builtin.debug:
     var: configspaces
