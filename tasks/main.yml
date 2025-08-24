@@ -3,12 +3,12 @@
   ansible.builtin.set_fact:
     role_done_lihas_variables: true
   tags:
-    - variables
+    - always
 - name: Init configspaces
   ansible.builtin.set_fact:
     configspaces: []
   tags:
-    - variables
+    - always
 - name: Find config spaces
   ansible.builtin.set_fact:
     configspaces: "{{ configspaces + [configspace] }}"
@@ -17,7 +17,9 @@
     loop_var: configspace
   when: "hostvars[inventory_hostname][configspace]['config'] is defined"
   tags:
-    - variables
+    - always
 - name: "DEBUG configspaces"
   ansible.builtin.debug:
     var: configspaces
+  tags:
+    - always
